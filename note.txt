@@ -1,0 +1,10 @@
+https://www.youtube.com/watch?v=PTthdbw4eIQ
+https://datasheets.raspberrypi.com/pico/pico-2-product-brief.pdf
+https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-python-sdk.pdf
+https://www.raspberrypi.com/documentation/microcontrollers/micropython.html
+https://github.com/micropython/micropython/wiki
+https://forum.micropython.org/
+https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-c-sdk.pdf
+https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html#about-the-debug-probe
+https://github.com/raspberrypi/documentation/blob/develop/_config.yml
+https://github.com/raspberrypi/documentation/
