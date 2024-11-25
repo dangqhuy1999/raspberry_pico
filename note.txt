@@ -24,3 +24,205 @@ while True:
   utime.sleep_ms(1000)
   led_onboard.value(0)
   utime.sleep_ms(1000)
+
+
+########
+ADC : kết nối cảm biến với chân của RP2
+Khi nào sử dụng AGND?
+
+    Kết nối Cảm biến: Nếu bạn kết nối một cảm biến analog (ví dụ: cảm biến nhiệt độ) mà không có yêu cầu đặc biệt về tách biệt tín hiệu, bạn có thể kết nối GND của cảm biến với GND của Raspberry Pi Pico.
+
+    Khi cần độ chính xác cao: Nếu mạch của bạn có nhiều thiết bị kỹ thuật số có thể tạo ra nhiễu (như động cơ, LED, v.v.), việc kết nối GND của cảm biến với AGND sẽ giúp tách biệt và giảm thiểu nhiễu, đảm bảo tín hiệu từ cảm biến được đọc chính xác hơn.
+
+Tóm tắt:
+
+    Kết nối GND của cảm biến với GND của Pico là đủ cho nhiều ứng dụng đơn giản.
+    Kết nối GND của cảm biến với AGND có thể được thực hiện khi bạn cần độ chính xác cao hơn, đặc biệt trong các mạch phức tạp với nhiều nguồn nhiễu 
+
+################
+Chân 3V3_EN trên Raspberry Pi Pico là một chân điều khiển, dùng để bật/tắt nguồn cung cấp 3.3V.
+
+Cụ thể, chân 3V3_EN có các chức năng sau:
+
+1. **Bật/Tắt nguồn 3.3V**:
+   - Khi chân 3V3_EN được kéo lên mức cao (logic 1), nó sẽ bật nguồn cung cấp 3.3V trên bo mạch.
+   - Khi chân 3V3_EN được kéo về mức thấp (logic 0), nó sẽ tắt nguồn cung cấp 3.3V.
+
+2. **Quản lý nguồn điện**:
+   - Chân 3V3_EN cho phép bạn kiểm soát và quản lý việc cấp nguồn 3.3V trên Raspberry Pi Pico.
+   - Điều này có thể hữu ích khi bạn muốn tiết kiệm năng lượng bằng cách tắt nguồn 3.3V khi không sử dụng.
+
+3. **Linh hoạt trong thiết kế**:
+   - Chân 3V3_EN cung cấp thêm tính linh hoạt trong việc thiết kế mạch, cho phép bạn kiểm soát việc cấp nguồn 3.3V.
+   - Ví dụ, bạn có thể kết nối chân này với một nút bấm để bật/tắt nguồn 3.3V khi cần.
+
+Trong tổng thể, chân 3V3_EN trên Raspberry Pi Pico cho phép bạn bật/tắt nguồn cung cấp 3.3V, giúp kiểm soát và quản lý năng lượng tiêu thụ của mạch một cách linh hoạt.
+
+Bạn có thể sử dụng chân này để điều khiển việc cấp nguồn 3.3V cho các thiết bị ngoại vi, ví dụ như tắt nguồn khi không sử dụng để tiết kiệm pin. Tuy nhiên, cần lưu ý không tắt nguồn 3.3V khi Raspberry Pi Pico vẫn đang hoạt động, vì điều này có thể gây hư hỏng.
+
+Hy vọng giải thích này đã giúp bạn hiểu rõ hơn về chức năng và cách sử dụng chân 3V3_EN trên Raspberry Pi Pico. Hãy cho tôi biết nếu bạn còn thắc mắc gì khác.
+
+###########.
+
+Chân RUN
+Chân RUN trên Raspberry Pi Pico là một chân đặc biệt với vai trò điều khiển việc khởi động (boot) của hệ thống.
+
+Cụ thể, chân RUN có các chức năng sau:
+
+1. **Điều khiển quá trình khởi động**:
+   - Khi chân RUN được kéo lên mức cao (logic 1), nó sẽ cho phép Raspberry Pi Pico khởi động bình thường.
+   - Khi chân RUN được kéo về mức thấp (logic 0), nó sẽ ngăn việc khởi động của Raspberry Pi Pico.
+
+2. **Khởi động trong chế độ bootloader**:
+   - Nếu chân RUN được kéo về mức thấp (logic 0) trong quá trình khởi động, Raspberry Pi Pico sẽ khởi động vào chế độ bootloader.
+   - Chế độ bootloader cho phép bạn cập nhật firmware hoặc tải chương trình mới vào Raspberry Pi Pico.
+
+3. **Kiểm soát khởi động hệ thống**:
+   - Chân RUN cung cấp cho bạn khả năng kiểm soát và can thiệp vào quá trình khởi động của Raspberry Pi Pico.
+   - Điều này có thể hữu ích khi bạn muốn khởi động vào chế độ bootloader hoặc ngăn việc khởi động hệ thống trong một số trường hợp nhất định.
+
+Ví dụ, bạn có thể kết nối chân RUN với một nút bấm. Khi bấm nút, nó sẽ kéo chân RUN về mức thấp, buộc Raspberry Pi Pico khởi động vào chế độ bootloader, cho phép bạn cập nhật firmware hoặc tải chương trình mới.
+
+Tuy nhiên, cần lưu ý rằng việc can thiệp vào chân RUN khi Raspberry Pi Pico đang hoạt động bình thường có thể gây ra lỗi hoặc hư hỏng hệ thống. Vì vậy, bạn cần cẩn thận khi sử dụng chức năng của chân RUN.
+
+Hy vọng giải thích này đã giúp bạn hiểu rõ hơn về vai trò và cách sử dụng chân RUN trên Raspberry Pi Pico. Hãy cho tôi biết nếu bạn có thêm câu hỏi.
+$################3
+################3
+Vâng, chính xác! Chân I2C trên Raspberry Pi Pico không chỉ được sử dụng để kết nối với các thiết bị analog mà còn có thể được dùng để giao tiếp với các thiết bị số (digital) thông qua giao thức I2C.
+
+Một số ví dụ về việc kết nối các thiết bị số với chân I2C trên Raspberry Pi Pico bao gồm:
+
+1. **Mô-đun I/O mở rộng** (như MCP23017, PCF8574):
+   - Các mô-đun này cho phép mở rộng số lượng chân I/O số bằng cách kết nối chúng với chân SCL và SDA của Pico qua I2C.
+   - Bạn có thể đọc/ghi trạng thái của các chân I/O số này thông qua giao tiếp I2C.
+
+2. **Mô-đun hiển thị LED/Matrixs** (như MAX7219, HT16K33):
+   - Các mô-đun này cho phép điều khiển các ma trận LED hoặc hiển thị LED 7 đoạn thông qua I2C.
+   - Bạn có thể gửi dữ liệu qua I2C để đẩy các mẫu hình ảnh hoặc số lên các màn hình LED.
+
+3. **Bộ điều khiển động cơ** (như TB6612FNG, L293D):
+   - Các mô-đun điều khiển động cơ có thể được kết nối với Pico qua I2C.
+   - Bạn có thể gửi lệnh điều khiển tốc độ, hướng quay và các thông số khác cho động cơ thông qua giao tiếp I2C.
+
+4. **Bộ chuyển đổi tương tự sang số** (như MCP3008, ADS1115):
+   - Các mô-đun này cho phép bạn mở rộng số lượng chân ADC bằng cách kết nối chúng với Pico qua I2C.
+   - Bạn có thể đọc các giá trị tín hiệu analog thông qua các kênh ADC của các mô-đun này.
+
+5. **Mô-đun cảm biến số** (như BME280, MPU6050):
+   - Nhiều cảm biến số như nhiệt độ, độ ẩm, gia tốc, từ trường... sử dụng giao tiếp I2C.
+   - Bạn có thể kết nối các cảm biến này với Pico qua chân I2C và đọc dữ liệu cảm biến.
+
+Trong tất cả các ví dụ trên, bạn sẽ sử dụng các hàm I2C như `i2c.init()`, `i2c.scan()`, `i2c.write()` và `i2c.read()` để thiết lập kết nối và trao đổi dữ liệu với các thiết bị số thông qua giao tiếp I2C.
+
+Hy vọng những ví dụ này đã giúp bạn hiểu rõ hơn về khả năng kết nối các thiết bị số với chân I2C trên Raspberry Pi Pico. Hãy cho tôi biết nếu bạn có thêm câu hỏi!
+################################
+IC2
+Vâng, chính xác! Chân I2C trên Raspberry Pi Pico không chỉ được sử dụng để kết nối với các thiết bị analog mà còn có thể được dùng để giao tiếp với các thiết bị số (digital) thông qua giao thức I2C.
+
+Một số ví dụ về việc kết nối các thiết bị số với chân I2C trên Raspberry Pi Pico bao gồm:
+
+1. **Mô-đun I/O mở rộng** (như MCP23017, PCF8574):
+   - Các mô-đun này cho phép mở rộng số lượng chân I/O số bằng cách kết nối chúng với chân SCL và SDA của Pico qua I2C.
+   - Bạn có thể đọc/ghi trạng thái của các chân I/O số này thông qua giao tiếp I2C.
+
+2. **Mô-đun hiển thị LED/Matrixs** (như MAX7219, HT16K33):
+   - Các mô-đun này cho phép điều khiển các ma trận LED hoặc hiển thị LED 7 đoạn thông qua I2C.
+   - Bạn có thể gửi dữ liệu qua I2C để đẩy các mẫu hình ảnh hoặc số lên các màn hình LED.
+
+3. **Bộ điều khiển động cơ** (như TB6612FNG, L293D):
+   - Các mô-đun điều khiển động cơ có thể được kết nối với Pico qua I2C.
+   - Bạn có thể gửi lệnh điều khiển tốc độ, hướng quay và các thông số khác cho động cơ thông qua giao tiếp I2C.
+
+4. **Bộ chuyển đổi tương tự sang số** (như MCP3008, ADS1115):
+   - Các mô-đun này cho phép bạn mở rộng số lượng chân ADC bằng cách kết nối chúng với Pico qua I2C.
+   - Bạn có thể đọc các giá trị tín hiệu analog thông qua các kênh ADC của các mô-đun này.
+
+5. **Mô-đun cảm biến số** (như BME280, MPU6050):
+   - Nhiều cảm biến số như nhiệt độ, độ ẩm, gia tốc, từ trường... sử dụng giao tiếp I2C.
+   - Bạn có thể kết nối các cảm biến này với Pico qua chân I2C và đọc dữ liệu cảm biến.
+
+Trong tất cả các ví dụ trên, bạn sẽ sử dụng các hàm I2C như `i2c.init()`, `i2c.scan()`, `i2c.write()` và `i2c.read()` để thiết lập kết nối và trao đổi dữ liệu với các thiết bị số thông qua giao tiếp I2C.
+
+Hy vọng những ví dụ này đã giúp bạn hiểu rõ hơn về khả năng kết nối các thiết bị số với chân I2C trên Raspberry Pi Pico. Hãy cho tôi biết nếu bạn có thêm câu hỏi!
+
+#################3:w
+UART
+
+Tôi hiểu cảm giác của bạn! Thực tế, một vi điều khiển đơn lẻ có thể thực hiện nhiều tác vụ và ứng dụng mà không cần phải kết nối với vi điều khiển khác. Tuy nhiên, việc kết nối hai vi điều khiển qua UART có một số lợi ích quan trọng:
+
+1. **Chia nhỏ tác vụ**: 
+   - Khi bạn có nhiều nhiệm vụ phức tạp, việc chia nhỏ chúng giữa hai vi điều khiển có thể giúp tối ưu hóa hiệu suất và làm cho chương trình dễ quản lý hơn.
+
+2. **Tăng cường khả năng mở rộng**:
+   - Nếu bạn muốn thêm nhiều cảm biến hoặc thiết bị ngoại vi, việc sử dụng nhiều vi điều khiển có thể giúp bạn quản lý nhiều kết nối hơn mà không làm quá tải một vi điều khiển duy nhất.
+
+3. **Tính linh hoạt**:
+   - Một vi điều khiển có thể tập trung vào việc xử lý dữ liệu, trong khi vi điều khiển khác có thể đảm nhiệm giao tiếp với người dùng hoặc các thiết bị khác, giúp giảm tải cho mỗi vi điều khiển.
+
+4. **Dự phòng và tin cậy**:
+   - Nếu một vi điều khiển gặp sự cố, vi điều khiển khác có thể tiếp tục hoạt động, giúp tăng cường độ tin cậy cho hệ thống.
+
+5. **Giao tiếp giữa các module**:
+   - Trong các hệ thống lớn, có thể có nhiều module khác nhau cần giao tiếp với nhau. Việc sử dụng UART để kết nối giữa các module này có thể giúp tổ chức và quản lý dữ liệu hiệu quả hơn.
+
+6. **Kiểm soát từ xa hoặc đồng bộ hóa**:
+   - Trong một số ứng dụng, bạn có thể cần điều khiển hoặc giám sát nhiều thiết bị từ xa. Việc kết nối qua UART có thể giúp thực hiện điều này.
+
+Tóm lại, mặc dù một vi điều khiển có thể thực hiện nhiều tác vụ, việc kết nối hai vi điều khiển (hoặc nhiều hơn) có thể cung cấp sự linh hoạt, hiệu suất và độ tin cậy cao hơn trong các ứng dụng phức tạp. Nếu bạn có một ứng dụng đơn giản, thì chắc chắn một vi điều khiển là đủ, nhưng trong các hệ thống lớn hơn, kết nối có thể mang lại nhiều lợi ích. 
+
+Nếu bạn cần thêm thông tin hoặc có câu hỏi cụ thể nào khác, hãy cho tôi biết nhé!
+####################
+Bạn đúng, UART cũng có thể được sử dụng để kết nối và điều khiển các thiết bị như LED. Tuy nhiên, I2C và UART đều có những ưu điểm và trường hợp sử dụng riêng biệt, vì vậy chúng có thể được sử dụng song song trong các ứng dụng nhúng.
+
+Một số lý do khi nên sử dụng I2C thay vì chỉ dùng UART:
+
+1. **Nhiều thiết bị**: I2C cho phép kết nối nhiều thiết bị (lên tới 128) trên cùng một bus, trong khi UART thường chỉ kết nối 2 thiết bị.
+
+2. **Tốc độ dữ liệu**: I2C có tốc độ truyền dữ liệu cao hơn so với UART, lên tới 3.4 Mbps, phù hợp với các ứng dụng yêu cầu tốc độ cao.
+
+3. **Địa chỉ thiết bị**: Mỗi thiết bị I2C có một địa chỉ duy nhất, giúp dễ dàng phân biệt và truy cập chúng. UART không có cơ chế địa chỉ này.
+
+4. **Đơn giản hóa dây cáp**: I2C chỉ cần 2 đường dữ liệu, trong khi UART cần 4 dây (RX, TX, GND, Vcc).
+
+5. **Giao tiếp song song**: I2C cho phép các thiết bị truyền và nhận dữ liệu cùng lúc, trong khi UART chỉ truyền một chiều tại một thời điểm.
+
+Tuy nhiên, UART vẫn có những ưu điểm nhất định, như khoảng cách truyền xa hơn, khả năng giao tiếp kết nối điểm-điểm đơn giản hơn. Vì vậy, việc sử dụng I2C và UART phụ thuộc vào yêu cầu của ứng dụng cụ thể.
+
+Ví dụ, bạn có thể sử dụng UART để điều khiển LED, còn I2C để kết nối các cảm biến và mô-đun mở rộng khác. Việc kết hợp cả hai giao tiếp sẽ giúp tối ưu hóa hiệu suất và linh hoạt của hệ thống nhúng.
+#######################
+Các ví dụ về giao thức SPI (Serial Peripheral Interface) thường được sử dụng để:
+
+1. **Kết nối cảm biến**: Rất nhiều cảm biến như gia tốc kế, con quay hồi chuyển, cảm biến áp suất, v.v. sử dụng SPI để truyền dữ liệu đo lường từ cảm biến đến vi điều khiển.
+
+2. **Điều khiển màn hình LCD/OLED**: Các màn hình hiển thị đồ họa như LCD/OLED thường sử dụng giao thức SPI để nhận dữ liệu hình ảnh từ vi điều khiển.
+
+3. **Kết nối bộ nhớ flash/EEPROM**: SPI có thể được sử dụng để đọc/ghi dữ liệu lên các chip bộ nhớ lưu trữ như flash, EEPROM.
+
+4. **Truyền dữ liệu với DAC/ADC**: Các module chuyển đổi tín hiệu analog sang số (ADC) hoặc số sang analog (DAC) thường sử dụng SPI để giao tiếp với vi điều khiển.
+
+5. **Kết nối với bo mạch mở rộng**: Các bo mạch mở rộng như MCP23S17 (mở rộng I/O), MAX7219 (điều khiển LED ma trận), v.v. có thể được kết nối với vi điều khiển qua SPI.
+
+6. **Truyền dữ liệu giữa các vi điều khiển**: SPI được sử dụng để kết nối và trao đổi dữ liệu giữa các vi điều khiển khác nhau trong một hệ thống.
+
+Ví dụ cụ thể, bạn có thể sử dụng SPI để kết nối một cảm biến gia tốc MPU6050 với một vi điều khiển Raspberry Pi Pico, để đọc và xử lý dữ liệu gia tốc. Hoặc kết nối một màn hình OLED SSD1306 với Pico để hiển thị thông tin.
+
+Giao thức SPI cung cấp tốc độ truyền dữ liệu cao, khả năng mở rộng và tính đồng bộ tốt, vì vậy nó rất phù hợp với các ứng dụng điều khiển và giám sát trong các hệ thống nhúng.
+
+#################
+Ảnh này có vẻ như biểu đồ về các chuẩn giao tiếp serieal khác nhau và các ứng dụng tương ứng của chúng.
+
+Về cái cuối cùng - GPIO, FIO và PWM - đây là các chức năng và giao diện cơ bản mà các vi điều khiển như Raspberry Pi Pico thường hỗ trợ:
+
+1. **GPIO (General Purpose Input/Output)**: GPIO là các chân đa năng có thể được cấu hình làm đầu vào hoặc đầu ra để kết nối và điều khiển các thiết bị ngoại vi như LED, nút nhấn, cảm biến, v.v.
+
+2. **FIO (Fast I/O)**: FIO là chức năng input/output với tốc độ cao hơn so với GPIO thông thường, giúp truyền dữ liệu nhanh hơn.
+
+3. **PWM (Pulse Width Modulation)**: PWM là kỹ thuật điều chế độ rộng xung, thường được sử dụng để điều khiển tốc độ động cơ, độ sáng LED, hoặc các ứng dụng khác yêu cầu điều chỉnh mức công suất.
+
+Một ví dụ cụ thể về ứng dụng của GPIO, FIO và PWM trên Raspberry Pi Pico có thể là:
+
+- Sử dụng GPIO để điều khiển bật/tắt các LED, đọc trạng thái các nút nhấn.
+- Sử dụng FIO để giao tiếp tốc độ cao với các cảm biến hoặc mô-đun.
+- Sử dụng PWM để điều chỉnh tốc độ động cơ DC hoặc độ sáng của các LED.
+
+Các chức năng này rất cơ bản nhưng vô cùng quan trọng trong lập trình và thiết kế hệ thống nhúng dựa trên vi điều khiển như Raspberry Pi Pico.
