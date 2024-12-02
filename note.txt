@@ -1,3 +1,29 @@
+NOTATION:
+CAUSING!!!!!!!!!!!
+
+Đúng rồi, để chương trình của bạn tự động chạy khi Raspberry Pi Pico được khởi động hoặc kết nối với nguồn điện, bạn nên đặt tên tệp Python chính của mình là main.py. Đây là cách MicroPython nhận diện và tự động thực thi tệp khi khởi động.
+
+Dưới đây là các bước cụ thể:
+
+    Đặt tên tệp Python chính của bạn là main.py.
+
+    Lưu tệp này vào bộ nhớ của Raspberry Pi Pico.
+
+Ví dụ:
+
+    Nếu bạn có tệp program.py và muốn nó tự động chạy, bạn đổi tên tệp này thành main.py.
+
+    Sau đó, tải tệp main.py lên Raspberry Pi Pico.
+
+Khi bạn cắm Raspberry Pi Pico vào nguồn điện hoặc kết nối USB, MicroPython sẽ tự động tìm kiếm và thực thi tệp main.py.
+
+Nếu bạn có thêm câu hỏi hoặc cần trợ giúp thêm, đừng ngần ngại hỏi nhé!
+#########################3
+############################33
+###############################
+###############################
+
+
 Simulator:     
 https://wokwi.com/projects/334512724199342674
 
