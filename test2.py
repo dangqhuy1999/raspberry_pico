@@ -6,6 +6,11 @@ from utime import sleep_ms, sleep
 #from time import  sleep
 from picodfplayer import DFPlayer
 
+<<<<<<< HEAD
+=======
+# Khởi tạo UART
+uart = machine.UART(0, baudrate=9600, tx=16, rx=17)  # Thay đổi chân theo cấu hình của bạn
+>>>>>>> origin2/main
 
 #Constants. Change these if DFPlayer is connected to other pins.
 UART_INSTANCE=0
@@ -13,6 +18,7 @@ TX_PIN = 16
 RX_PIN=17
 BUSY_PIN=6
 
+<<<<<<< HEAD
 #Create player instance
 player=DFPlayer(UART_INSTANCE, TX_PIN, RX_PIN)#, BUSY_PIN)
 
@@ -78,3 +84,7 @@ sleep(5)
 
 #print('You can try me out by sending commands in the console, such as player.resume()')
 '''
+=======
+# Đợi một chút để DFPlayer xử lý
+utime.sleep(5)  # Chờ 5 giây
+>>>>>>> origin2/main
