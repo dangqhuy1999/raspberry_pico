@@ -1,0 +1,22 @@
+Chức năng:
+
+    Dây tiếp địa được sử dụng để bảo vệ an toàn cho người sử dụng và thiết bị bằng cách cung cấp một đường dẫn an toàn cho dòng điện rò hoặc dư.
+    Giúp giảm thiểu nguy cơ điện giật và cháy nổ bằng cách dẫn dòng điện không mong muốn xuống đất.
+
+Đặc điểm:
+
+    Thường được đánh dấu bằng màu xanh lá cây, hoặc xanh lá và vàng kết hợp.
+    Kết nối với các vỏ kim loại hoặc khung của thiết bị để đảm bảo rằng nếu có sự cố, dòng điện sẽ được dẫn ra ngoài an toàn.
+
+Nguy cơ:
+
+    Nếu dây tiếp địa không được kết nối đúng cách, hoặc nếu nó bị hỏng, sẽ không còn bảo vệ an toàn cho các thiết bị và người sử dụng.
+    Cần được kiểm tra định kỳ để đảm bảo tính hiệu quả.
+
+Tóm tắt
+
+    Dây nóng mang điện áp và cung cấp điện năng cho thiết bị.
+    Dây lạnh hoàn thành mạch điện và có điện áp gần bằng 0V.
+    Dây tiếp địa bảo vệ an toàn bằng cách dẫn dòng điện rò ra đất.
+
+Việc hiểu rõ chức năng và đặc điểm của từng loại dây là rất quan trọng để đảm bảo an toàn và hiệu quả trong hệ thống điện.
